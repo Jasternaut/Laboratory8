@@ -62,7 +62,7 @@ namespace first
         return consonants.find(to_lower(c)) != std::string::npos; 
     }
 
-    // очистить слова от лишних знаков
+    // Очистить слова от лишних знаков
     void clear_words(int cnt, std::string words[N_Max])
     {
         for(int i=0; i<cnt; i++)
@@ -76,6 +76,7 @@ namespace first
             }
     }
 
+    // Вспомогательная функция для проверки, упорядочены ли согласные по алфавиту
     bool are_consonants_alphabeted(std::string word)
     {
         char previous = '\0';
@@ -95,6 +96,7 @@ namespace first
         return true;
     }
 
+    // Очищение списка от слов, в которых согласные не упорядочены по алфавиту
     void filter_alphabeted_words(int cnt, std::string words[N_Max], std::string sorted_words[N_Max], int& count)
     {
         count = 0;
@@ -111,7 +113,7 @@ namespace first
     // Функция для удаления дубликатов 
     // Внешний цикл: проходит по каждому элементу массива.
     // Внутренний цикл: сравнивает текущий элемент с последующими элементами.
-    void removeDuplicates(std::string words[N_Max], int& cnt) 
+    void remove_duplicates(std::string words[N_Max], int& cnt) 
     { 
         for (int i = 0; i < cnt; i++) 
         { 
@@ -131,6 +133,22 @@ namespace first
         } 
     }
 
+    // Функция для сортировки слов по убыванию их длины 
+    void sort_by_length(std::string words[N_Max], int cnt) 
+    { 
+        for (int i = 0; i < cnt - 1; ++i) 
+        { 
+            for (int j = 0; j < cnt - i - 1; ++j) 
+            { 
+                if (words[j].length() < words[j + 1].length()) 
+                { 
+                    std::swap(words[j], words[j + 1]); 
+                } 
+            } 
+        } 
+    }
+
+    // Главная часть кода первого пункта
     int task_1()
     {
         int n;
@@ -146,7 +164,8 @@ namespace first
         
         clear_words(cnt, words);
         filter_alphabeted_words(cnt, words, sorted_words, count);
-        removeDuplicates(sorted_words, count);
+        remove_duplicates(sorted_words, count);
+        sort_by_length(sorted_words, count);
 
         write_console(count, sorted_words);
         write(count, sorted_words);
