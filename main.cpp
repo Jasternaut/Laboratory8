@@ -1,4 +1,5 @@
 #include <iostream>
+#include "task_1.hpp"
 
 /*
 Лабораторная работа 8. 
@@ -23,6 +24,20 @@
 
 int main()
 {
+    std::cout << "Select number of the task: ";
+    int task;
+    std::cin >> task;
+
+    switch (task)
+    {
+        case 1:
+            if(first::task_1() == 0)
+                return 0;
+        break;
+        
+        default:
+            std::cout << "Wrong number." << std::endl;
+    }
 
     return 0;
 }
