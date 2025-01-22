@@ -1,6 +1,7 @@
 #include <iostream>
 #include "task_1.hpp"
 #include "task_2.hpp"
+#include "task_3.hpp"
 
 /*
 Лабораторная работа 8. 
@@ -32,13 +33,15 @@ int main()
     switch (task)
     {
         case 1:
-            if(first::task_1() == 0)
-                return 0;
+            if(first::task_1() == 0) return 0;
         break;
 
         case 2:
-            if(second::task_2() == 0)
-                return 0;
+            if(second::task_2() == 0) return 0;
+        break;
+
+        case 3:
+            if(third::task_3() == 0) return 0;
         break;
         
         default:
