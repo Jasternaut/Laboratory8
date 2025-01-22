@@ -1,5 +1,6 @@
 #include <iostream>
 #include "task_1.hpp"
+#include "task_2.hpp"
 
 /*
 Лабораторная работа 8. 
@@ -32,6 +33,11 @@ int main()
     {
         case 1:
             if(first::task_1() == 0)
+                return 0;
+        break;
+
+        case 2:
+            if(second::task_2() == 0)
                 return 0;
         break;
         
