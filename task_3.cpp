@@ -70,7 +70,7 @@ namespace third
         out << output_buffer.str();
         out.close();
 
-        std::cout << "done.";
+        std::cout << "Task 3 completed succesfuly!";
         return 0;
     }
 }

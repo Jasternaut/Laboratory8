@@ -2,6 +2,7 @@
 #include <fstream>
 #include <iostream>
 #include <algorithm>
+#include "util.hpp"
 
 namespace first
 {
@@ -14,7 +15,8 @@ namespace first
 
     const int N_Max = 2000;
 
-    bool read(int& n, int& cnt, std::string words[N_Max])
+    // Считать данные
+    bool read(int& cnt, std::string words[N_Max])
     {
         std::ifstream in("input.txt");
 
@@ -158,13 +160,12 @@ namespace first
     // Главная часть кода первого пункта
     int task_1()
     {
-        int n;
         int cnt;
         int count;
         std::string words[N_Max];
         std::string sorted_words[N_Max];
 
-        if (!read(n, cnt, words))
+        if (!read(cnt, words))
         {
             return -1;
         }
@@ -177,6 +178,7 @@ namespace first
         write_console(count, sorted_words);
         write(count, sorted_words);
 
+        std::cout << "Task 1 completed succesfuly!";  
         return 0;
     }
 }

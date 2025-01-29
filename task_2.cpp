@@ -5,6 +5,7 @@
 #include <sstream>
 #include <cstring>
 #include <algorithm>
+#include "util.hpp"
 
 namespace second
 {
@@ -14,7 +15,7 @@ namespace second
         в остальных словах удалить гласные и продублировать согласные буквы.
     */
 
-    // уменьшить букву
+    // Уменьшить букву
     char to_lower(char c)
     {
         if ('A' <= c && c <= 'Z')
@@ -22,13 +23,14 @@ namespace second
         return c;
     }
 
-    // является ли буква согласной 
+    // Является ли буква согласной 
     bool is_consonant(char c) 
     { 
         std::string consonants = "bcdfghjklmnpqrstvwxyz"; 
         return consonants.find(to_lower(c)) != std::string::npos; 
     }
 
+    // Дублировать согласные
     std::string process_word(const std::string& word)
     {
         std::string result;
@@ -36,7 +38,7 @@ namespace second
         {
             if (is_consonant(letter))
             {
-                result.push_back(letter);
+                result.push_back(letter); // push_back добавляет один символ в конец строки
                 result.push_back(letter);
             }
         }
@@ -60,7 +62,7 @@ namespace second
         std::string line, word;
         while(std::getline(in, line))
         {
-            std::istringstream stream(line);
+            std::istringstream stream(line); // для чтения строк
             while(stream >> word)
             {
                 int consonant_count = 0;
@@ -89,7 +91,7 @@ namespace second
 
         in.close();
         std::istringstream result_stream(output_content);
-        std::ostringstream sorted_output;
+        std::ostringstream sorted_output; // для вывода строк
         std::string sorted_words[1024];
         int word_count = 0;
 
@@ -104,7 +106,7 @@ namespace second
         out << sorted_output.str();
         out.close();
 
-        std::cout << "done" << std::endl;
+        std::cout << "Task 2 completed succesfuly!" << std::endl;
         return 0;
     }
 }

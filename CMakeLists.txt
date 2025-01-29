@@ -8,4 +8,4 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_CXX_STANDART_REQUIRED TRUE)
 
 # сказать программе, что должен быть исполняемый файл
-add_executable("${PROJECT_NAME}" main.cpp task_1.cpp task_2.cpp task_3.cpp)
+add_executable("${PROJECT_NAME}" main.cpp task_1.cpp task_2.cpp task_3.cpp util.cpp)
