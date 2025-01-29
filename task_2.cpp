@@ -15,28 +15,13 @@ namespace second
         в остальных словах удалить гласные и продублировать согласные буквы.
     */
 
-    // Уменьшить букву
-    char to_lower(char c)
-    {
-        if ('A' <= c && c <= 'Z')
-            c += 32;
-        return c;
-    }
-
-    // Является ли буква согласной 
-    bool is_consonant(char c) 
-    { 
-        std::string consonants = "bcdfghjklmnpqrstvwxyz"; 
-        return consonants.find(to_lower(c)) != std::string::npos; 
-    }
-
     // Дублировать согласные
     std::string process_word(const std::string& word)
     {
         std::string result;
         for (char letter : word)
         {
-            if (is_consonant(letter))
+            if (util::is_consonant(letter))
             {
                 result.push_back(letter); // push_back добавляет один символ в конец строки
                 result.push_back(letter);
@@ -68,7 +53,7 @@ namespace second
                 int consonant_count = 0;
                 for (char letter : word)
                 {
-                    if(is_consonant(letter))
+                    if(util::is_consonant(letter))
                         ++consonant_count;
                 }      
 

@@ -56,21 +56,6 @@ namespace first
         out.close();
     }
 
-    // уменьшить букву
-    char to_lower(char c)
-    {
-        if ('A' <= c && c <= 'Z')
-            c += 32;
-        return c;
-    }
-    
-    // Является ли буква согласной 
-    bool is_consonant(char c) 
-    { 
-        std::string consonants = "bcdfghjklmnpqrstvwxyz"; 
-        return consonants.find(to_lower(c)) != std::string::npos; 
-    }
-
     // Очистить слова от лишних знаков
     void clear_words(int cnt, std::string words[N_Max])
     {
@@ -92,8 +77,8 @@ namespace first
 
         for (char c : word)
         {
-            char lower_c = to_lower(c);
-            if(is_consonant(lower_c))
+            char lower_c = util::to_lower(c);
+            if(util::is_consonant(lower_c))
             {
                 if(previous != '\0' && lower_c < previous)
                 {
